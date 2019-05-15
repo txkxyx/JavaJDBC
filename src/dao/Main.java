@@ -40,6 +40,7 @@ public class Main {
 				for (TProject tProject : tProjectList) {
 					tProjectDAO.create(tProject);
 				}
+				connection.commit();
 			} catch (SQLException e) {
 				connection.rollback();
 				e.printStackTrace();
