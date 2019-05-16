@@ -47,7 +47,7 @@ public class MEmployeeDAO {
 				.prepareStatement("insert into m_employee(eno,ename,hire_date,salary,address) values (?,?,?,?,?);")) {
 			preparedStatement.setInt(1, mEmployee.getEno());
 			preparedStatement.setString(2, mEmployee.getEname());
-			preparedStatement.setDate(3, mEmployee.getHire_date());
+			preparedStatement.setDate(3, mEmployee.getHireDate());
 			preparedStatement.setInt(4, mEmployee.getSalary());
 			preparedStatement.setString(5, mEmployee.getAddress());
 
@@ -62,7 +62,7 @@ public class MEmployeeDAO {
 				"update m_employee set eno = ?,ename = ?,hire_date = ?,salary = ?,address = ? where eno = ?;")) {
 			preparedStatement.setInt(1, mEmployee.getEno());
 			preparedStatement.setString(2, mEmployee.getEname());
-			preparedStatement.setDate(3, mEmployee.getHire_date());
+			preparedStatement.setDate(3, mEmployee.getHireDate());
 			preparedStatement.setInt(4, mEmployee.getSalary());
 			preparedStatement.setString(5, mEmployee.getAddress());
 			preparedStatement.setInt(6, eno);

@@ -6,6 +6,12 @@ public class TProject {
 	private int eno;
 	private int rno;
 
+	public TProject(int pno, int eno, int rno) {
+		this.pno = pno;
+		this.eno = eno;
+		this.rno = rno;
+	}
+
 	public TProject(int id, int pno, int eno, int rno) {
 		this.id = id;
 		this.pno = pno;

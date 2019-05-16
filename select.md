@@ -6,7 +6,7 @@ SQL の追加問題([https://github.com/txkxyx/sql_workshop/blob/master/question
 
 社員テーブル(m_employee)で社員名に「A」を含む社員の社員名と給料を検索せよ。その際、給料の高い社員順に検索せよ。
 
-- 実行結果
+- 実行結果例
 
   ```bash
   | ename | salary |
@@ -23,7 +23,7 @@ SQL の追加問題([https://github.com/txkxyx/sql_workshop/blob/master/question
 
 社員テーブル(m_employee)の中から、2000 年代に入社した社員の平均給料を検索せよ。
 
-- 実行結果
+- 実行結果例
 
 ```bash
 | average  |
@@ -35,7 +35,7 @@ SQL の追加問題([https://github.com/txkxyx/sql_workshop/blob/master/question
 
 全てのプロジェクトにおいて、プロジェクトごとの社員名とその役割名の一覧を検索せよ。さらに、プロジェクトの並び順はプロジェクト番号が高い順で、役割の並び順は役割番号が低い順に表示せよ。
 
-- 実行結果
+- 実行結果例
 
 ```bash
 | pname | ename | rname |

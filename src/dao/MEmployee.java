@@ -5,7 +5,7 @@ import java.sql.Date;
 public class MEmployee {
 	private int eno;
 	private String ename;
-	private Date hire_date;
+	private Date hireDate;
 	private int salary;
 	private String address;
 
@@ -13,10 +13,10 @@ public class MEmployee {
 
 	}
 
-	public MEmployee(int eno, String ename, Date hire_date, int salary, String address) {
+	public MEmployee(int eno, String ename, Date hireDate, int salary, String address) {
 		this.eno = eno;
 		this.ename = ename;
-		this.hire_date = hire_date;
+		this.hireDate = hireDate;
 		this.salary = salary;
 		this.address = address;
 	}
@@ -37,12 +37,12 @@ public class MEmployee {
 		this.ename = ename;
 	}
 
-	public Date getHire_date() {
-		return hire_date;
+	public Date getHireDate() {
+		return hireDate;
 	}
 
-	public void setHire_date(Date hire_date) {
-		this.hire_date = hire_date;
+	public void setHireDate(Date hireDate) {
+		this.hireDate = hireDate;
 	}
 
 	public int getSalary() {

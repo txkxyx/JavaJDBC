@@ -42,6 +42,21 @@ public class TProjectDAO {
 		}
 	}
 
+	public List<TProject> findByPno(int pno) throws SQLException {
+		try (PreparedStatement preparedStatement = connection
+				.prepareStatement("select * from  t_project where pno = ?;")) {
+			preparedStatement.setInt(1, pno);
+			ResultSet resultSet = preparedStatement.executeQuery();
+			List<TProject> tProjectList = new ArrayList<>();
+			while (resultSet.next()) {
+				TProject tProject = new TProject(resultSet.getInt("id"), resultSet.getInt("pno"),
+						resultSet.getInt("eno"), resultSet.getInt("rno"));
+				tProjectList.add(tProject);
+			}
+			return tProjectList;
+		}
+	}
+
 	public int create(TProject tProject) throws SQLException {
 		try (PreparedStatement preparedStatement = connection
 				.prepareStatement("insert into t_project(pno,eno,rno) values (?,?,?);")) {
