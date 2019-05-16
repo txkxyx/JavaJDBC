@@ -16,7 +16,7 @@ public class Main {
 		MEmployee[] mEmployeeList = { new MEmployee(12, "OKADA", Date.valueOf("2016-09-21"), 300000, "Osaka"),
 				new MEmployee(13, "YAMAGUCHI", Date.valueOf("2017-12-14"), 280000, "Hyogo"),
 				new MEmployee(14, "KATAOKA", Date.valueOf("2018-03-02"), 240000, "Ishikawa") };
-		MProject[] mProjectList = { new MProject(5, "PythonProject"), new MProject(6, "IoTProject") };
+		MProject[] mProjectList = { new MProject(5, "Python Project"), new MProject(6, "IoTProject") };
 		TProject[] tProjectList = { new TProject(5, 5, 10), new TProject(5, 6, 20), new TProject(5, 9, 30),
 				new TProject(5, 12, 40), new TProject(6, 2, 10), new TProject(6, 3, 20), new TProject(6, 14, 30),
 				new TProject(6, 13, 40) };

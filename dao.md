@@ -167,4 +167,122 @@ SQL の追加問題([https://github.com/txkxyx/sql_workshop/blob/master/question
 
 ## 問題 3
 
-社員テーブルに
+新たな社員と新たなプロジェクトが開始されたとします。
+
+下の表を参考に、社員テーブルに新たな社員を、プロジェクトテーブルに新たなプロジェクトを、プロジェクト管理テーブルにプロジェクトに参加する社員を登録せよ。
+
+登録後に、プロジェクト管理テーブルから、新たに登録したプロジェクトの情報を検索せよ。
+
+- 社員情報
+
+  | eno | ename     | hire_date  | salary | address  |
+  | --- | --------- | ---------- | ------ | -------- |
+  | 12  | OKADA     | 2016-09-21 | 300000 | Osaka    |
+  | 13  | YAMAGUCHI | 2017-12-14 | 280000 | Hyogo    |
+  | 14  | KATAOKA   | 2018-03-02 | 240000 | Ishikawa |
+
+- プロジェクト情報
+
+  | pno | pname          |
+  | --- | -------------- |
+  | 5   | Python Project |
+  | 6   | IoT Project    |
+
+- プロジェクト管理情報
+
+  | pno | eno | rno |
+  | --- | --- | --- |
+  | 5   | 5   | 10  |
+  | 5   | 6   | 20  |
+  | 5   | 9   | 30  |
+  | 5   | 12  | 40  |
+  | 6   | 2   | 10  |
+  | 6   | 3   | 20  |
+  | 6   | 14  | 30  |
+  | 6   | 13  | 40  |
+
+- ヒント
+
+  ```java
+  package ???;
+
+  import java.sql.Connection;
+  import java.sql.Date;
+  import java.sql.DriverManager;
+  import java.sql.SQLException;
+  import java.util.List;
+
+  public class Main {
+      static final String URL = "jdbc:mysql://localhost:3306/development?useSSL=false&serverTimezone=JST";
+      static final String USER = "root";
+      static final String PASSWORD = "???";
+
+      public static void main(String[] args) {
+
+          ???[] mEmployeeList = { new ???(12, "OKADA", Date.valueOf("2016-09-21"), 300000, "Osaka"),
+                  new ???(13, "YAMAGUCHI", Date.valueOf("2017-12-14"), 280000, "Hyogo"),
+                  new ???(14, "KATAOKA", Date.valueOf("2018-03-02"), 240000, "Ishikawa") };
+          ???[] mProjectList = { new ???(5, "Python Project"), new ???(6, "IoTProject") };
+          ???[] tProjectList = { new ???(5, 5, 10), new ???(5, 6, 20), new ???(5, 9, 30),
+                  new ???(5, 12, 40), new ???(6, 2, 10), new ???(6, 3, 20), new ???(6, 14, 30),
+                  new ???(6, 13, 40) };
+
+          try (Connection connection = DriverManager.getConnection(URL, USER, PASSWORD)) {
+              connection.???;
+
+              try {
+                  MEmployeeDAO mEmployeeDAO = new MEmployeeDAO(connection);
+                  ???
+
+                  MProjectDAO mProjectDAO = new MProjectDAO(connection);
+                  ???
+
+                  connection.???;
+
+                  TProjectDAO tProjectDAO = new TProjectDAO(connection);
+                  ???
+                  connection.???;
+
+                  List<TProject> t5Projects = tProjectDAO.findByPno(5);
+                  showTProject(t5Projects);
+                  List<TProject> t6Projects = tProjectDAO.findByPno(6);
+                  showTProject(t6Projects);
+
+              } catch (SQLException e) {
+                  connection.rollback();
+                  e.printStackTrace();
+              }
+
+          } catch (SQLException e) {
+              e.printStackTrace();
+          }
+      }
+
+      public static void showTProject(List<TProject> tProjects) {
+          System.out.println(" id | pno | eno | rno |");
+          System.out.println("-----------------------");
+          for (TProject tProject : tProjects) {
+              System.out.printf(" %2d | %3d | %3d | %3d |\n", ???, ???, ???,???);
+          }
+          System.out.println();
+      }
+  }
+  ```
+
+- 実行結果
+
+  ```bash
+  id | pno | eno | rno |
+  -----------------------
+  32 |   5 |   5 |  10 |
+  33 |   5 |   6 |  20 |
+  34 |   5 |   9 |  30 |
+  35 |   5 |  12 |  40 |
+
+  id | pno | eno | rno |
+  -----------------------
+  36 |   6 |   2 |  10 |
+  37 |   6 |   3 |  20 |
+  38 |   6 |  14 |  30 |
+  39 |   6 |  13 |  40 |
+  ```
