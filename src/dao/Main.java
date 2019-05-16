@@ -9,7 +9,7 @@ import java.util.List;
 public class Main {
 	static final String URL = "jdbc:mysql://localhost:3306/development?useSSL=false&serverTimezone=JST";
 	static final String USER = "root";
-	static final String PASSWORD = "811403ot";
+	static final String PASSWORD = "";
 
 	public static void main(String[] args) {
 
