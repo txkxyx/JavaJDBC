@@ -231,18 +231,22 @@ SQL の追加問題([https://github.com/txkxyx/sql_workshop/blob/master/question
               connection.???;
 
               try {
+                  // 社員の登録
                   MEmployeeDAO mEmployeeDAO = new MEmployeeDAO(connection);
                   ???
 
+                  // プロジェクトの登録
                   MProjectDAO mProjectDAO = new MProjectDAO(connection);
                   ???
 
                   connection.???;
 
+                  // プロジェクト管理の登録
                   TProjectDAO tProjectDAO = new TProjectDAO(connection);
                   ???
                   connection.???;
 
+                  // プロジェクト管理の表示
                   List<TProject> t5Projects = tProjectDAO.findByPno(5);
                   showTProject(t5Projects);
                   List<TProject> t6Projects = tProjectDAO.findByPno(6);
