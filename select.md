@@ -4,7 +4,7 @@ SQL の追加問題([https://github.com/txkxyx/sql_workshop/blob/master/question
 
 ## 問題 1
 
-社員テーブル(m_employee)で社員名に「A」を含む社員の社員名と給料を検索せよ。その際、給料の高い社員順に検索せよ。
+社員テーブル(m_employee)で社員名が「A」で終わる社員の社員名と給料を検索せよ。その際、給料の高い社員順に検索せよ。
 
 - 実行結果例
 
